@@ -18,8 +18,8 @@ from gtts import gTTS
 #to get the current working directory
 directory = os.getcwd()
 
-print(directory)
-print("new3")
+#print(directory)
+#print("new3")
 import ctypes, os
 try:
  is_admin = os.getuid() == 0
@@ -32,7 +32,7 @@ print (is_admin)
 engine = pyttsx3.init()
 API_TOKEN = open('./secrets/api.txt','r+').readline()
 API_TOKEN= API_TOKEN.strip().replace("\n","")
-print(API_TOKEN)
+#print(API_TOKEN)
 ids=[[451248878,'eng']]
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN)
