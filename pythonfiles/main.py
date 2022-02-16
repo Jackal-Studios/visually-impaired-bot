@@ -31,6 +31,8 @@ print (is_admin)
 #     pass
 engine = pyttsx3.init()
 API_TOKEN = open('./secrets/api.txt','r+').readline()
+API_TOKEN= API_TOKEN.strip().replace("\n","")
+print(API_TOKEN)
 ids=[[451248878,'eng']]
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN)
@@ -89,7 +91,17 @@ async def ocr(language):
 from time import sleep
 async def tts(text,msgid,lang):
      print("got to tts")
-     language=lang[:-1]
+     print("new code")
+     if(lang=='chi_sim' or lang =='por' or lang=='spa'):  # maybe something else
+         if(lang=='chi_sim'):
+             language="zh"
+         elif(lang=='por'):
+             language='pt'
+         elif(lang=='spa'):
+             language='es'
+     else:
+         language=lang[:-1]
+     #language=lang[:-1]
      print(language)
      speech = gTTS(text=text,lang=language,slow=False)
      speech.save(temporary_folder_path+str(msgid)+".ogg")
